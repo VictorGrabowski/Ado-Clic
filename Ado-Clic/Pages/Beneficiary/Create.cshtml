@@ -1,15 +1,19 @@
 @page
-@model Ado_Clic.Pages.Beneficiary.CreateModel
+@model Ado_Clic.Pages.User.CreateModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-<p>Enter a beneficiary name:</p>
+<p>Enter a User name:</p>
 
 <form method="post">
     firstName:
-    <input asp-for="Beneficiary!.PName" />
+    <input asp-for="User!.PName" />
     lastName:
-    <input asp-for="Beneficiary!.LName" />
+    <input asp-for="User!.LName" />
     email:
-    <input asp-for="Beneficiary!.Email" />
+    <input asp-for="User!.Email" />
+    UserType:
+    <select asp-for="User!.UserType" asp-items="Model.UserTypeList">
+        <option value="">Select User Type</option>
+    </select>
     <input type="submit" />
 </form>

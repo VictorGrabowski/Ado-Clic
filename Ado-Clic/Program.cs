@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<BeneficiaryDbContext>(options =>
+builder.Services.AddDbContext<UserDbContext>(options =>
     options.UseInMemoryDatabase("name"));
 var app = builder.Build();
 

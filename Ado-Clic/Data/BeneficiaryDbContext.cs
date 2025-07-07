@@ -2,13 +2,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Ado_Clic.Data
 {
-    public class BeneficiaryDbContext : DbContext
+    public class UserDbContext : DbContext
     {
-        public BeneficiaryDbContext (DbContextOptions<BeneficiaryDbContext> options)
+        public UserDbContext (DbContextOptions<UserDbContext> options)
             : base(options)
         {
         }
 
-        public DbSet<Ado_Clic.Models.Beneficiary> Beneficiary => Set<Ado_Clic.Models.Beneficiary>();
+        public DbSet<Ado_Clic.Models.User> User => Set<Ado_Clic.Models.User>();
     }
 }
