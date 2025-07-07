@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using Ado_Clic.Models.Enums;
 
 namespace Ado_Clic.Models
 {
-    public class Beneficiary
+    public class User
     {
         public int Id { get; set; }
         [Required, StringLength(10)]
@@ -11,5 +12,7 @@ namespace Ado_Clic.Models
         public string? LName { get; set; }
         [Required]
         public string? Email { get; set; }
+        [Required]
+        public UserType? UserType { get; set; } 
     }
 }
