@@ -111,6 +111,8 @@ namespace Infrastructure.DataContext
                 .WithOne(icm => icm.Activity)
                 .HasForeignKey(icm => icm.ActivityId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.AddUserRoleMigration();
         }
     }
 }
