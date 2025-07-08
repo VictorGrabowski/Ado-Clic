@@ -3,7 +3,7 @@ SOLUTION = $(wildcard *.sln)
 
 .PHONY: all restore build test clean
 
-all: build
+all: run
 
 restore:
 	dotnet restore $(SOLUTION)
@@ -17,10 +17,10 @@ test: build
 clean:
 	dotnet clean $(SOLUTION)
 	
-run:
+run: build
 	docker compose up --build
 	
-migrate:
+migrate: run
 	dotnet ef database update --project Ado-Clic
 	
 new-migration:

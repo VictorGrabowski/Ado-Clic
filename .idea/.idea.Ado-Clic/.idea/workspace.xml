@@ -10,7 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba6ccc72-f8d1-4a40-b854-39681f0650f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Ado-Clic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ado-Clic/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +40,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/v.grabowski/RiderProjects/Ado-Clic/Ado-Clic/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/v.grabowski/RiderProjects/Ado-Clic/Ado-Clic/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/v.grabowski/RiderProjects/Ado-Clic/Infrastructure/Migrations/AdoclicDataContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -137,7 +140,7 @@
       <updated>1751877797827</updated>
       <workItem from="1751877798912" duration="2742000" />
       <workItem from="1751880596615" duration="13002000" />
-      <workItem from="1751961299968" duration="9894000" />
+      <workItem from="1751961299968" duration="10526000" />
     </task>
     <servers />
   </component>
