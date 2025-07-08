@@ -9,8 +9,6 @@ Ce projet est une application C# utilisant .NET et PostgreSQL.
 ### Prérequis
 
 - [.NET 9 SDK](https://dotnet.microsoft.com/download)
-- [PostgreSQL](https://www.postgresql.org/download/)
-- [JetBrains Rider](https://www.jetbrains.com/rider/) (optionnel, recommandé)
 - [Make](https://gnuwin32.sourceforge.net/packages/make.htm) (pour Windows, optionnel)
 
 ### 1. Cloner le dépôt
