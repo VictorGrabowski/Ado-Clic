@@ -21,6 +21,22 @@ namespace Infrastructure.DataContext
 
             modelBuilder.Entity<UserRole>()
                 .HasData(roles);
+
+            // Development Admin
+            string password = "password";
+
+            User admin = new()
+            {
+                Id = 1,
+                Email = "email@email.com",
+                BirthTimestamp = 0,
+                FirstName = "Admin",
+                LastName = "Admin",
+                RoleId = 4
+            };
+
+            modelBuilder.Entity<User>()
+                .HasData(admin);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Ado_Clic.Pages
         private readonly HttpClient _httpClient;
 
         [BindProperty]
-        public LoginRequest Request { get; set; }
+        public LoginRequest LoginRequest { get; set; }
 
         public SigninModel(IHttpClientFactory httpClientFactory)
         {
@@ -19,7 +19,8 @@ namespace Ado_Clic.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            HttpResponseMessage response = await _httpClient.PostAsJsonAsync("api/auth/login", Request);
+            _httpClient.BaseAddress = new Uri("http://localhost:5213");
+            HttpResponseMessage response = await _httpClient.PostAsJsonAsync("/api/auth/login", LoginRequest);
 
             if (response.IsSuccessStatusCode)
             {
@@ -32,7 +33,7 @@ namespace Ado_Clic.Pages
                     Expires = DateTimeOffset.UtcNow.AddHours(1)
                 });
 
-                return RedirectToPage("/Index");
+                return RedirectToPage("/index");
             }
 
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");

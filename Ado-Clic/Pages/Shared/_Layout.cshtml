@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,6 +9,7 @@
 <body>
     <header class="bg-dark text-white p-3 mb-4">
         <h1 class="text-bg-success">Adoclic Main Site</h1>
+        @await Html.PartialAsync("_Navbar", new Ado_Clic.Pages.Shared._NavBarModel { /* set properties here */ })
     </header>
 
     <main class="container">

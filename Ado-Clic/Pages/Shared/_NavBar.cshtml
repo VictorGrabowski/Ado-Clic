@@ -1,0 +1,15 @@
+﻿@page
+@model Ado_Clic.Pages.Shared._NavBarModel
+
+@if (User.Identity != null && User.Identity.IsAuthenticated)
+{
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<!-- Your navbar HTML here -->
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item"><a class="nav-link" href="/Index">Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="/Profile">Profile</a></li>
+			<li class="nav-item"><a class="nav-link" href="/Logout">Logout</a></li>
+		</ul>
+	</nav>
+}
+
