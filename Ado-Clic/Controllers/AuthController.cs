@@ -1,15 +1,16 @@
 ﻿using Business.Requests;
 using Business.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ado_Clic.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [AllowAnonymous]
     public class AuthController(IUserService userService) : ControllerBase
     {
         private readonly IUserService _userService = userService;
-
 
         [HttpPost("login")]
         public async Task<ActionResult<string>> Login([FromBody] LoginRequest request)
@@ -21,6 +22,5 @@ namespace Ado_Clic.Controllers
 
             return Ok(new { Token = token });
         }
-
     }
 }

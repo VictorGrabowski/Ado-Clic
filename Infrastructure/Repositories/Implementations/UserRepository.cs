@@ -20,5 +20,15 @@ namespace Infrastructure.Repositories.Implementations
                 .Include(u => u.Role)
                 .FirstOrDefaultAsync(u => u.Email == email);
         }
+
+        public async Task<User> GetProfileDataByEmailAsync(string email)
+        {
+            return await _context.Users
+                .Include(u => u.Address)
+                .Include(u => u.EmergencyContact)
+                .Include(u => u.UserVolunteerInterests)
+                .Include(u => u.InterventionTypes)
+                .FirstAsync(u => u.Email == email);
+        }
     }
 }
