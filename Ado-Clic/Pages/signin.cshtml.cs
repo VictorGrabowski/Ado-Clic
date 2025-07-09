@@ -10,7 +10,7 @@ namespace Ado_Clic.Pages
         private readonly HttpClient _httpClient;
 
         [BindProperty]
-        public LoginRequest Request { get; set; }
+        public new LoginRequest Request { get; set; }
 
         public SigninModel(IHttpClientFactory httpClientFactory)
         {
@@ -25,7 +25,7 @@ namespace Ado_Clic.Pages
             {
                 TokenResponse? result = await response.Content.ReadFromJsonAsync<TokenResponse>();
 
-                Response.Cookies.Append("jwtToken", result.Token, new CookieOptions()
+                Response.Cookies.Append("jwtToken", result?.Token, new CookieOptions()
                 {
                     HttpOnly = true,
                     SameSite = SameSiteMode.Strict,

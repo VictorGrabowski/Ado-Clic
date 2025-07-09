@@ -1,0 +1,22 @@
+@page
+@{
+    bool _isAdmin = true;
+
+    void SwitchRole()
+    {
+        _isAdmin = !_isAdmin;
+    }
+}
+
+<h1>Signing up</h1>
+<h2>Please choose the type of account you're willing to create.</h2>
+<input type="button" value="Switch between Admin and non-admin" onclick=@SwitchRole/>
+<form>
+    @if (_isAdmin )
+    {
+        <input type="submit" value="Admin" asp-page-handler="RedirectToAdminSubscriptionPage" />
+        <input type="button" value="Support" />
+    }
+    <input type="button" value="Beneficiary" />
+    <input type="button" value="Volunteer" />
+</form>

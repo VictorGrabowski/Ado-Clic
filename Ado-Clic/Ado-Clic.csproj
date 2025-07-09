@@ -32,4 +32,9 @@
       <Folder Include="wwwroot\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Pages\Index.cshtml.cs" />
+      <Compile Include="Pages\index.cshtml.cs" />
+    </ItemGroup>
+
 </Project>

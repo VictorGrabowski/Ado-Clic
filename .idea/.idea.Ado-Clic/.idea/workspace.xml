@@ -10,9 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba6ccc72-f8d1-4a40-b854-39681f0650f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Ado-Clic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ado-Clic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ado-Clic/Ado-Clic.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Ado-Clic/Ado-Clic.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ado-Clic/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ado-Clic/Pages/index.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ado-Clic/Pages/index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Ado-Clic/Pages/index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ado-Clic/Pages/signin.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ado-Clic/Pages/signin.cshtml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,11 +40,15 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/v.grabowski/RiderProjects/Ado-Clic/Ado-Clic/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/v.grabowski/RiderProjects/Ado-Clic/Ado-Clic/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/v.grabowski/RiderProjects/Ado-Clic/Infrastructure/Migrations/AdoclicDataContextModelSnapshot.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/17367ddeb3b959bda6d8fbc6369cd65a8e6ee9d124ec6f9b884b1182ce76a8/RazorPage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/v.grabowski/RiderProjects/Ado-Clic/Ado-Clic/Pages/Index.cshtml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/v.grabowski/RiderProjects/Ado-Clic/Ado-Clic/Pages/index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Ado-Clic/Pages/index.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -53,27 +59,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Ado-Clic: http.executor": "Run",
-    ".NET Launch Settings Profile.Ado-Clic: https.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Ado-Clic: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Ado-Clic: https.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localRunNotPublishedPersistedInfo">
+      <LocalReportPersistedInfo>
+        <option name="path" value="C:\Users\v.grabowski\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
+        <option name="reportGuid" value="0af19dae-f062-4c5c-8ea6-7f579c657433" />
+        <option name="reportName" value="Ado-Clic/qodana/2025-07-09" />
+      </LocalReportPersistedInfo>
+    </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
+  </component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\v.grabowski\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="0af19dae-f062-4c5c-8ea6-7f579c657433" reportId="Ado-Clic/qodana/2025-07-09" />
+    </option>
+  </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Ado-Clic: https">
     <configuration name="Ado-Clic: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Ado-Clic/Ado-Clic.csproj" />
@@ -141,6 +164,7 @@
       <workItem from="1751877798912" duration="2742000" />
       <workItem from="1751880596615" duration="13002000" />
       <workItem from="1751961299968" duration="10526000" />
+      <workItem from="1752050570765" duration="2520000" />
     </task>
     <servers />
   </component>
