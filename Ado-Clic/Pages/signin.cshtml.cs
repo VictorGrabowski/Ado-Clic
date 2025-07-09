@@ -14,12 +14,11 @@ namespace Ado_Clic.Pages
 
         public SigninModel(IHttpClientFactory httpClientFactory)
         {
-            _httpClient = httpClientFactory.CreateClient();
+            _httpClient = httpClientFactory.CreateClient("ApiClient");
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            _httpClient.BaseAddress = new Uri("http://localhost:5213");
             HttpResponseMessage response = await _httpClient.PostAsJsonAsync("/api/auth/login", LoginRequest);
 
             if (response.IsSuccessStatusCode)

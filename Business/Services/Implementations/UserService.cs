@@ -1,6 +1,8 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Business.Mappers;
+using Business.Responses;
 using Business.Services.Interfaces;
 using Infrastructure.Repositories.Interfaces;
 using Microsoft.Extensions.Configuration;
@@ -27,10 +29,11 @@ namespace Business.Services.Implementations
             byte[] key = Encoding.UTF8.GetBytes(_config["Jwt:Key"]);
 
             Claim roleClaim = new(ClaimTypes.Role, user.Role.Name);
+            Claim emailClaim = new(ClaimTypes.Email, user.Email);
 
-            SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
+            SecurityTokenDescriptor tokenDescriptor = new()
             {
-                Subject = new ClaimsIdentity([roleClaim]),
+                Subject = new ClaimsIdentity([roleClaim, emailClaim]),
                 Expires = DateTime.UtcNow.AddHours(1),
                 Issuer = _config["Jwt:Issuer"],
                 Audience = _config["Jwt:Audience"],
@@ -39,6 +42,13 @@ namespace Business.Services.Implementations
 
             SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
+        }
+
+        public async Task<UserProfileData> GetUserProfileDataByEmail(string email)
+        {
+            User user = await _repository.GetProfileDataByEmailAsync(email);
+
+            return user.ToProfileData();
         }
     }
 }

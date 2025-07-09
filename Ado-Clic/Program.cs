@@ -1,4 +1,5 @@
 using System.Text;
+using Ado_Clic.Handlers;
 using Business.Services.Implementations;
 using Business.Services.Interfaces;
 using Infrastructure.DataContext;
@@ -54,7 +55,17 @@ builder.Services.AddAuthentication("JwtCookie")
         };
     });
 
-builder.Services.AddHttpClient();
+var apiBaseUrl = builder.Configuration["ApiSettings:BaseUrl"];
+
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddTransient<JwtCookieHandler>();
+
+builder.Services.AddHttpClient("ApiClient", client =>
+{
+    client.BaseAddress = new Uri(apiBaseUrl);
+})
+.AddHttpMessageHandler<JwtCookieHandler>();
 
 builder.Services.AddControllers();
 

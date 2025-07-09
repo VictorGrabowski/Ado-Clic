@@ -1,0 +1,51 @@
+﻿@page
+@model Ado_Clic.Pages.ProfileModel
+@{
+}
+
+<div id="profile-basic-information" class="card w-25">
+	<div class="card-body">
+		<h5 class="card-title">Informations de profil</h5>
+
+		<div class="container">
+			<div class="row ">
+				<div class="col-sm">
+					<p class="card-text text-muted">Prénom: </p>
+				</div>
+				<p class="col-sm card-text">@Model.ProfileData?.FirstName</p>
+			</div>
+
+			<div class="row">
+				<div class="col-sm">
+					<p class="card-text text-muted">Nom: </p>
+				</div>
+				<p class="col-sm card-text">@Model.ProfileData?.LastName</p>
+			</div>
+
+			<div class="row">
+				<div class="col-sm">
+					<p class="card-text text-muted">Courriel: </p>
+				</div>
+				<p class="col-sm card-text">@Model.ProfileData?.Email</p>
+			</div>
+
+			<div class="row">
+				<div class="col-sm">
+					<p class="card-text text-muted">Role: </p>
+				</div>
+				<p class="col-sm card-text"></p>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div id="profile-beneficiary-information">
+
+</div>
+
+<div id="profile-volunteer-information">
+
+</div>
+
+
