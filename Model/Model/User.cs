@@ -19,7 +19,7 @@ namespace Model.Model
         public string? Notes { get; set; }
         public string? PhotoPath { get; set; }
 
-        public required UserRole Role { get; set; }
+        public UserRole? Role { get; set; }
         public UserAddress? Address { get; set; }
         public UserEmergencyContact? EmergencyContact { get; set; }
         public List<UserVolunteerInterest>? UserVolunteerInterests { get; set; }

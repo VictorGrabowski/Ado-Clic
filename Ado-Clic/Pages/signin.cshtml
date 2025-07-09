@@ -6,8 +6,9 @@
 
 <div class="container mt-5">
     <form method="post">
-        <input type="text" name="Username" placeholder="Username" />
-        <input type="password" name="Password" placeholder="Password" />
+        @Html.AntiForgeryToken()
+        <input type="text" name="LoginRequest.Email" placeholder="Username" />
+        <input type="password" name="LoginRequest.Password" placeholder="Password" />
         <button type="submit">Login</button>
     </form>
 </div>

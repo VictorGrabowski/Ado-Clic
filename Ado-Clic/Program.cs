@@ -33,6 +33,7 @@ builder.Services.AddAuthentication("JwtCookie")
             OnMessageReceived = context =>
             {
                 var token = context.Request.Cookies["jwtToken"];
+                Console.WriteLine("token is currently: " + token);
                 if (!string.IsNullOrEmpty(token))
                 {
                     context.Token = token;
@@ -47,9 +48,9 @@ builder.Services.AddAuthentication("JwtCookie")
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = "yourIssuer",
-            ValidAudience = "yourAudience",
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("yourSuperSecretKey"))
+            ValidIssuer = builder.Configuration.GetSection("Jwt:Issuer").Value,
+            ValidAudience = builder.Configuration.GetSection("Jwt:Issuer").Value,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("Jwt:Key").Value))
         };
     });
 
@@ -57,8 +58,31 @@ builder.Services.AddHttpClient();
 
 builder.Services.AddControllers();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseAuthentication();
+app.Use(async (context, next) =>
+{
+    await next();
+
+    if (context.Response.StatusCode == 401 && !context.User.Identity.IsAuthenticated)
+    {
+        context.Response.Redirect("/signin");
+    }
+});
+app.UseAuthorization();
+
 app.MapRazorPages();
+
+app.MapControllers();
 
 await app.RunAsync();
