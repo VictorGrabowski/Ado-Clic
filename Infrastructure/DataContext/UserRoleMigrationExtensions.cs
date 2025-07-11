@@ -23,8 +23,6 @@ namespace Infrastructure.DataContext
                 .HasData(roles);
 
             // Development Admin
-            string password = "password";
-
             User admin = new()
             {
                 Id = 1,
@@ -35,8 +33,40 @@ namespace Infrastructure.DataContext
                 RoleId = 4
             };
 
+            User volunteer = new()
+            {
+                Id = 2,
+                Email = "jean.doe@gmail.com",
+                BirthTimestamp = 0,
+                FirstName = "Jean",
+                LastName = "Doe",
+                RoleId = 2
+            };
+
+            User beneficiary = new()
+            {
+                Id = 3,
+                Email = "marie.lala@hotmail.fr",
+                BirthTimestamp = 0,
+                FirstName = "Marie",
+                LastName = "Lala",
+                RoleId = 1
+            };
+
+            User support = new()
+            {
+                Id = 4,
+                Email = "mlock@gmail.com",
+                BirthTimestamp = 0,
+                FirstName = "Mark",
+                LastName = "Lock",
+                RoleId = 3
+            };
+
+            User[] users = [admin, volunteer, beneficiary, support];
+
             modelBuilder.Entity<User>()
-                .HasData(admin);
+                .HasData(users);
         }
     }
 }

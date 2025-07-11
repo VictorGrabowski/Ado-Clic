@@ -7,30 +7,35 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace Ado_Clic.Pages
 {
     [Authorize(AuthenticationSchemes = "Bearer")]
-    public class ProfileModel : PageModel
+    public class ProfileModel(IUserService userService, IInterventionService interventionService) : PageModel
     {
-        private readonly HttpClient _httpClient;
+        private readonly IUserService _userService = userService;
+        private readonly IInterventionService _interventionService = interventionService;
 
         [BindProperty]
         public UserProfileData? ProfileData { get; set; }
 
-        public ProfileModel(IHttpClientFactory httpClientFactory)
-        {
-            _httpClient = httpClientFactory.CreateClient("ApiClient");
-        }
-
         public async Task<IActionResult> OnGet()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("/api/user/profile");
+            string email = User.Claims.First(c => c.Type.Contains("email")).Value;
 
-            if (response.IsSuccessStatusCode)
+            ProfileData = await _userService.GetUserProfileDataByEmailAsync(email);
+
+            if (ProfileData == null)
             {
-                ProfileData = await response.Content.ReadFromJsonAsync<UserProfileData>();
-                return Page();
+                return NotFound();
             }
 
-            ModelState.AddModelError(string.Empty, "What.");
             return Page();
+        }
+
+        public async Task<IActionResult> DeleteInterventionType(long interventionId)
+        {
+            long userId = ProfileData?.Id ?? throw new ArgumentNullException(nameof(ProfileData.Id));
+
+            await _interventionService.DeleteOneUserTypeAsync(userId, interventionId);
+
+            return RedirectToPage();
         }
     }
 }

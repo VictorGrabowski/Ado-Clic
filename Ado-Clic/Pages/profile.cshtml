@@ -40,12 +40,38 @@
 	</div>
 </div>
 
-<div id="profile-beneficiary-information">
-
+<div class="card w-25">
+	<div class="card-body">
+		<!--Profile photo-->
+	</div>
 </div>
 
-<div id="profile-volunteer-information">
+@if(User.IsInRole("Beneficiary")){
+	<div id="profile-beneficiary-information">
 
-</div>
+	</div>
+}
+
+@if(User.IsInRole("Volunteer")){
+	<div id="profile-volunteer-information" class="card w-25">
+		<div class="card-body">
+			<h5 class="card-title">Informations de profil</h5>
+			@foreach (var interventionType in Model.ProfileData.InterventionTypes){
+				<div class="row">
+					<div class="col-sm">
+						<p>@interventionType.Name</p>
+					</div>
+					<div class="col-sm">
+						<form asp-action="DeleteInterventionType" method="post">
+							@Html.AntiForgeryToken()
+							<input type="hidden" name="interventionId" value="@interventionType.Id"/>
+							<button type="submit" class="btn btn-danger">Delete</button>
+						</form>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+}
 
 

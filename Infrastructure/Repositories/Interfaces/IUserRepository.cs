@@ -12,5 +12,7 @@ namespace Infrastructure.Repositories.Interfaces
         public Task<User?> GetUserByEmailAsync(string email);
 
         public Task<User> GetProfileDataByEmailAsync(string email);
+
+        public Task<List<User>> GetAllUsersAsync();
     }
 }

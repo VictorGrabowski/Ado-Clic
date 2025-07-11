@@ -1,15 +1,37 @@
-﻿@page
-@model Ado_Clic.Pages.Shared._NavBarModel
+﻿@page  
+@model Ado_Clic.Pages.Shared._NavBarModel  
 
-@if (User.Identity != null && User.Identity.IsAuthenticated)
-{
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<!-- Your navbar HTML here -->
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item"><a class="nav-link" href="/Index">Home</a></li>
-			<li class="nav-item"><a class="nav-link" href="/Profile">Profile</a></li>
-			<li class="nav-item"><a class="nav-link" href="/Logout">Logout</a></li>
-		</ul>
-	</nav>
+@if (User.Identity != null && User.Identity.IsAuthenticated)  
+{  
+<nav class="navbar navbar-expand-lg navbar-light bg-light">  
+<!-- Your navbar HTML here -->  
+<div class="container-fluid">  
+<div class="row w-100">  
+	<div class="col text-center">  
+		<a class="nav-link btn btn-lg btn-light h-100" style="font-size: 1.5rem; color: dimgrey" href="/Profile">Profil</a>  
+	</div>  
+	@if (User.IsInRole("Admin"))  
+	{  
+		<div class="col text-center">
+						<a class="nav-link btn btn-lg btn-light h-100" style="font-size: 1.5rem; color: dimgrey" href="/Administration">Administration</a>
+					</div>  
+	}  
+	@if(User.IsInRole("Beneficiary"))  
+	{  
+		<div class="col text-center">
+						<a class="nav-link btn btn-lg btn-light h-100" style="font-size: 1.5rem; color: dimgrey" href="/Beneficiary">Bénéficiaire</a>
+					</div>  
+	}  
+	@if (User.IsInRole("Volunteer"))  
+	{  
+		<div class="col text-center">
+						<a class="nav-link btn btn-lg btn-light h-100" style="font-size: 1.5rem; color: dimgrey" href="/Volunteer">Bénévole</a>
+					</div>  
+	}  
+	<div class="col text-center">
+					<a class="nav-link btn btn-lg btn-light h-100" style="font-size: 1.5rem; color: dimgrey" href="/Logout">Logout</a>
+				</div>  
+</div>  
+</div>  
+</nav>  
 }
-

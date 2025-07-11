@@ -1,14 +1,32 @@
-﻿@page
-@model Ado_Clic.Pages.SigninModel
-@{
-    ViewData["Title"] = "Sign In";
-}
+﻿@page  
+@model Ado_Clic.Pages.SigninModel  
+@{  
+  ViewData["Title"] = "Sign In";  
+}  
 
-<div class="container mt-5">
-    <form method="post">
-        @Html.AntiForgeryToken()
-        <input type="text" name="LoginRequest.Email" placeholder="Username" />
-        <input type="password" name="LoginRequest.Password" placeholder="Password" />
-        <button type="submit">Login</button>
-    </form>
+<div class="container mt-5">  
+  <div class="row justify-content-center">  
+      <div class="col-md-4">  
+          <div class="card shadow-sm">  
+              <div class="card-body">  
+                  <h3 class="text-center mb-4">Connexion</h3>  
+                  <form method="post">  
+                      @Html.AntiForgeryToken()  
+                      <div class="form-group mb-3">  
+                          <label for="email" class="form-label">Courriel</label>  
+                          <input type="email" id="email" name="LoginRequest.Email" class="form-control" placeholder="Entrez vôtre courriel" required />  
+                      </div>  
+                      <div class="form-group mb-3">  
+                          <label for="password" class="form-label">Mot de Passe</label>  
+                          <input type="password" id="password" name="LoginRequest.Password" class="form-control" placeholder="Entrez vôtre mot de passe" required />  
+                      </div>  
+                      <button type="submit" class="btn btn-primary w-100">Login</button>  
+                  </form>  
+                  <div class="text-center mt-3">  
+                      <a href="/signup" class="text-decoration-none">Créer un compte</a>  
+                  </div>  
+              </div>  
+          </div>  
+      </div>  
+  </div>  
 </div>

@@ -11,6 +11,8 @@ namespace Business.Services.Interfaces
     {
         public Task<string?> AuthenticateAsync(string email, string password);
 
-        public Task<UserProfileData> GetUserProfileDataByEmail(string email);
+        public Task<UserProfileData> GetUserProfileDataByEmailAsync(string email);
+
+        public Task<List<UserListData>> GetAllUsersAsListDataAsync();
     }
 }

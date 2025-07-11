@@ -19,9 +19,18 @@ namespace Ado_Clic.Controllers
 
             if (email == null) return Unauthorized();
 
-            UserProfileData profileData = await _userService.GetUserProfileDataByEmail(email);
+            UserProfileData profileData = await _userService.GetUserProfileDataByEmailAsync(email);
 
             return Ok(profileData);
+        }
+
+        [HttpGet("all/list-data")]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<UserListData>> GetAllUsersAsListDataAsync()
+        {
+            List<UserListData> users = await _userService.GetAllUsersAsListDataAsync();
+
+            return Ok(users);
         }
     }
 }

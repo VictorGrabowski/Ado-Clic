@@ -10,6 +10,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Content Include="css\site.css" />
+    </ItemGroup>
+
+    <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.6" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.6">
         <PrivateAssets>all</PrivateAssets>

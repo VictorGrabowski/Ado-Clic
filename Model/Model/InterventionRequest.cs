@@ -7,7 +7,7 @@ namespace Model.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public required long Id { get; set; }
+        public long? Id { get; set; }
         public required long UserId { get; set; }
         public required long InterventionTypeId { get; set; }
         public required long Timestamp { get; set; }
@@ -16,8 +16,8 @@ namespace Model.Model
         public required string Title { get; set; }
         public required string Description { get; set; }
 
-        public required User User { get; set; }
-        public required InterventionType InterventionType { get; set; }
+        public User? User { get; set; }
+        public InterventionType? InterventionType { get; set; }
         public InterventionAddress? Address { get; set; }
 
         public List<InterventionActivity>? Activities { get; set; }

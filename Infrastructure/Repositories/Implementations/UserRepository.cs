@@ -30,5 +30,12 @@ namespace Infrastructure.Repositories.Implementations
                 .Include(u => u.InterventionTypes)
                 .FirstAsync(u => u.Email == email);
         }
+
+        public async Task<List<User>> GetAllUsersAsync()
+        {
+            return await _context.Users
+                .Include(u => u.Role)
+                .ToListAsync();
+        }
     }
 }

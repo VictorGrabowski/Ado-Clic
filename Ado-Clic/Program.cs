@@ -12,14 +12,17 @@ using Microsoft.IdentityModel.Tokens;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
-builder.Services.AddScoped<IUserService, UserService>();
-
-builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddDbContext<AdoclicDataContext>(options =>
     options.UseNpgsql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
         b => b.MigrationsAssembly("Infrastructure")));
+
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IInterventionService, InterventionService>();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IInterventionRepository, InterventionRepository>();
 
 builder.Services.AddAuthentication("JwtCookie")
     .AddCookie("JwtCookie", options =>

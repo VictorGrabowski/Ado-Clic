@@ -1,0 +1,50 @@
+﻿@page  
+@model Ado_Clic.Pages.BeneficiaryModel  
+@{  
+   ViewData["Title"] = "Beneficiary";  
+   Layout = "_Layout";  
+}  
+
+<h1 class="text-primary">Beneficiary</h1>  
+
+<div id="interventions" class="d-flex flex-wrap gap-3">  
+   <!--Intervention creation card-->  
+   <div class="card shadow-sm mw-50 p-3">  
+       <div class="card-body">  
+           <form method="post" class="needs-validation" novalidate>  
+               @Html.AntiForgeryToken()  
+               <h5 class="text-secondary">Request a new intervention</h5>  
+               <div class="mb-3">  
+                   <label for="interventionType" class="form-label">Type of Intervention</label>  
+                   <select class="form-select" id="interventionType" name="InterventionRequestCreation.InterventionTypeId" aria-label="Select intervention type">  
+                       @foreach(var interventionType in Model.InterventionTypes) {  
+                           <option value="@interventionType.Id">@interventionType.Name</option>  
+                       }  
+                   </select>  
+               </div>  
+               <div class="mb-3">  
+                   <label for="interventionName" class="form-label">Intervention Name</label>  
+                   <input type="text" class="form-control" id="interventionName" name="InterventionRequestCreation.Name" placeholder="Enter intervention name" required />  
+               </div>  
+               <div class="mb-3">  
+                   <label for="interventionDescription" class="form-label">Description</label>  
+                   <textarea class="form-control" id="interventionDescription" name="InterventionRequestCreation.Description" rows="3" placeholder="Enter description" required></textarea>  
+               </div>  
+               <button type="submit" class="btn btn-success">Add</button>  
+           </form>  
+       </div>  
+   </div>  
+
+   <!--Intervention list-->  
+   @foreach(var intervention in Model.RequestData) {  
+       <div class="card shadow-sm mw-50 p-3" style="height:auto">
+           <div class="card-body">  
+               <h5 class="card-title text-primary">@intervention.Name</h5>  
+               <p class="card-text"><strong>Type:</strong> @intervention.InterventionTypeName</p>  
+               <p class="card-text"><strong>Description:</strong> @intervention.Description</p>  
+               <p class="card-text"><strong>Creation Date:</strong> @intervention.Description.ToString()</p>  
+               <button class="btn btn-outline-primary">View Details</button>  
+           </div>  
+       </div>  
+   }  
+</div>

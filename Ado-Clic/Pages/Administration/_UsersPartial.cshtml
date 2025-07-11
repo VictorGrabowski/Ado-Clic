@@ -1,0 +1,65 @@
+﻿@page  
+@using Business.Responses  
+@model Ado_Clic.Pages.Administration.UsersPartialModel  
+@{  
+   List<UserListData> UserListData = [  
+       new(){ Email = "john@doe.com", FirstName = "John", LastName = "Doe", Role = "Beneficiary"},  
+       new(){ Email = "mary.lee@gmail.com", FirstName = "Mary", LastName = "Lee", Role = "Volunteer"}  
+   ];  
+}  
+
+<h1 class="text-center my-4">Gestion d'Utilisateurs</h1>  
+
+<div class="container">  
+   <div class="row justify-content-center">  
+       <div class="col-lg-10">  
+           <div class="card shadow-sm border-0">  
+               <div class="card-header bg-primary text-white" style="background-color: dimgrey">  
+                   <h5 class="mb-0">Liste des Utilisateurs</h5>  
+               </div>  
+               <div class="card-body">  
+                   <table class="table table-hover align-middle">  
+                       <thead class="table-dark">  
+                           <tr>  
+                               <th>Prénom</th>  
+                               <th>Nom</th>  
+                               <th>Email</th>  
+                               <th>Rôle</th>  
+                               <th>Actions</th>  
+                           </tr>  
+                       </thead>  
+                       <tbody>  
+                           @foreach (var user in UserListData)  
+                           {  
+                               <tr id="userrow">  
+                                   <td>@user.FirstName</td>  
+                                   <td>@user.LastName</td>  
+                                   <td>@user.Email</td>  
+                                   <td>@user.Role</td>  
+                                   <td class="d-flex gap-2">  
+                                       <button class="btn btn-outline-primary btn-sm">Modifier</button>  
+                                       <button class="btn btn-outline-danger btn-sm" onclick="removeUser('@user.Email')">Supprimer</button>  
+                                   </td>  
+                               </tr>  
+                           }  
+                       </tbody>  
+                   </table>  
+               </div>  
+           </div>  
+       </div>  
+   </div>  
+</div>  
+
+<script>  
+   function removeUser(userMail) {  
+       console.log("Removing row for user: " + userMail);  
+
+       var userRow = document.getElementById("userrow" + userMail);  
+
+       if (userRow) {  
+           userRow.remove();  
+       } else {  
+           console.error("User row not found for email: " + userMail);  
+       }  
+   }  
+</script>

@@ -1,0 +1,28 @@
+﻿@page  
+@model Ado_Clic.Pages.VolunteerModel  
+@{  
+   ViewData["Title"] = "Bénévoles";  
+   Layout = "_Layout";  
+}  
+
+<h1>Bénévoles</h1>  
+<p>Les bénévoles peuvent accepter une requête d'intervention ci-dessous :</p>  
+
+<div class="row">  
+   @foreach (var request in Model.RequestData)  
+   {  
+       <div class="col-md-4">  
+           <div class="card mb-3">  
+               <div class="card-body">  
+                   <h5 class="card-title">@request.Name</h5>  
+                   <p class="card-text">@request.Description</p>  
+                   <p class="card-text"><small class="text-muted">Date: @request.DateTime.ToString("dd/MM/yyyy")</small></p>  
+                   <form method="post">
+                       <input type="hidden" name="" />
+                       <button type="submit" class="btn btn-primary">Accepter</button>
+                   </form>
+               </div>  
+           </div>  
+       </div>  
+   }  
+</div>

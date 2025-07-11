@@ -113,6 +113,7 @@ namespace Infrastructure.DataContext
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.AddUserRoleMigration();
+            modelBuilder.AddInterventionMigrations();
         }
     }
 }

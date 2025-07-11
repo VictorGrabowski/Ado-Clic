@@ -2,6 +2,7 @@
 using Infrastructure.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AdoclicDataContext))]
-    partial class AdoclicDataContextModelSnapshot : ModelSnapshot
+    [Migration("20250710093344_DevTestAccs")]
+    partial class DevTestAccs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,33 +210,6 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("InterventionTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            Name = "Courses"
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            Name = "Menuiserie"
-                        },
-                        new
-                        {
-                            Id = 3L,
-                            Name = "Ménage"
-                        },
-                        new
-                        {
-                            Id = 4L,
-                            Name = "Démarches légales"
-                        },
-                        new
-                        {
-                            Id = 5L,
-                            Name = "Aide informatique"
-                        });
                 });
 
             modelBuilder.Entity("Model.Model.User", b =>

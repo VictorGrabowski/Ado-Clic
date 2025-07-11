@@ -44,11 +44,18 @@ namespace Business.Services.Implementations
             return tokenHandler.WriteToken(token);
         }
 
-        public async Task<UserProfileData> GetUserProfileDataByEmail(string email)
+        public async Task<UserProfileData> GetUserProfileDataByEmailAsync(string email)
         {
             User user = await _repository.GetProfileDataByEmailAsync(email);
 
             return user.ToProfileData();
+        }
+
+        public async Task<List<UserListData>> GetAllUsersAsListDataAsync()
+        {
+            List<User> users = await _repository.GetAllUsersAsync();
+
+            return users.Select(u => u.ToListData()).ToList();
         }
     }
 }

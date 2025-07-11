@@ -1,0 +1,62 @@
+﻿@page  
+@model Ado_Clic.Pages.AdministrationModel  
+@{  
+  ViewData["Title"] = "Administration";  
+  Layout = "_Layout";  
+}  
+
+<div class="d-flex">  
+  <!-- Sidebar -->  
+  <nav class="bg-light border-right sidebar" style="width: 250px; height: 100vh;">  
+      <div class="sidebar-header p-3 bg-secondary text-white">  
+          <h5>Administration</h5>  
+      </div>  
+      <ul class="navbar-nav list-unstyled p-3">  
+          <li class="nav-item mb-2">  
+              <button class="btn btn-secondary w-100 text-start" style="background-color:steelblue" onclick="loadSection('users')">Utilisateurs</button>  
+          </li>  
+          <li class="nav-item mb-2">
+                <button class="btn btn-secondary w-100 text-start" style="background-color:steelblue" onclick="loadSection('interventions')">Interventions</button>
+            </li>  
+          <li class="nav-item mb-2">
+                <button class="btn btn-secondary w-100 text-start" style="background-color:steelblue">Section 3</button>
+            </li>  
+          <li class="nav-item mb-2">
+                <button class="btn btn-secondary w-100 text-start" style="background-color:steelblue">Section 4</button>
+            </li>  
+      </ul>  
+  </nav>  
+
+  <!-- Main Content -->  
+  <div class="flex-grow-1 p-3" id="administration-content">  
+
+  </div>  
+</div>  
+
+<script>  
+  function loadSection(sectionName) {  
+      fetch(`/Administration?handler=${sectionName}Partial`)  
+          .then(response => response.text())  
+          .then(html => {  
+              document.getElementById('administration-content').innerHTML = html;  
+          })  
+          .catch(error => {  
+              console.error('Error loading section:', error);  
+              document.getElementById('administration-content').innerHTML = "<p>Erreur lors du chargement de la section.</p>";  
+          });  
+  }  
+</script>  
+
+<style>  
+  .sidebar {  
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+  }  
+  .sidebar-header {  
+      font-size: 1.2rem;  
+      font-weight: bold;  
+      text-align: center;  
+  }  
+  .btn {  
+      border-radius: 0.25rem;  
+  }  
+</style>
